@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { oneProduct } from '../../../../shared/mocks/1-components/product';
+import { IProduct, oneProduct } from '../../../../shared/mocks/1-components/product';
 
 @Component({
 	selector: 'ngx-shop-root',
@@ -7,17 +7,17 @@ import { oneProduct } from '../../../../shared/mocks/1-components/product';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-	public product = oneProduct;
+	public product: IProduct = oneProduct;
 
 	public terminalMessage!: string;
 
 	public title = '1. Интерполяция и связывание (Карточка товара cтраницы подкатигории)';
 
-	public addToCart() {
+	public addToCart(): void {
 		this.terminalMessage = 'товар добавлен в кoрзину';
 	}
 
-	public goToProduct() {
+	public goToProduct(): void {
 		this.terminalMessage = 'переход на страницу продукта';
 	}
 }
