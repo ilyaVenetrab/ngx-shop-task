@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { oneProduct } from '../../../../shared/mocks/3-directives/product-information';
+import { IProduct, oneProduct } from '../../../../shared/mocks/3-directives/product-information';
 
 @Component({
 	selector: 'ngx-shop-root',
@@ -8,13 +8,13 @@ import { oneProduct } from '../../../../shared/mocks/3-directives/product-inform
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-	public title = 'Компонент описания товара и отзывов';
+	public title: string = 'Компонент описания товара и отзывов';
 
-	public product = oneProduct;
+	public product: IProduct = oneProduct;
 
 	public terminalMessage: string | null = null;
 
 	public addFeedback(value: string): void {
-		this.terminalMessage = value;
+		this.terminalMessage = `add feedback for ${value}`;
 	}
 }

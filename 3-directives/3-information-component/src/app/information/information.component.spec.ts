@@ -26,9 +26,9 @@ describe('[Moдуль 3 - Компонент информации о товар�
 		expect((component as any).show).toBeTruthy();
 	});
 
-	it('компонент "information" должен иметь свойство product c значением null', () => {
+	it('компонент "information" должен иметь свойство product c значением {}', () => {
 		expect((component as any).product).toBeDefined();
-		expect((component as any).product).toEqual(null);
+		expect((component as any).product).toEqual({});
 	});
 	it('компонент "information" должен иметь свойство isShow c значением false', () => {
 		expect((component as any).isShow).toBeDefined();

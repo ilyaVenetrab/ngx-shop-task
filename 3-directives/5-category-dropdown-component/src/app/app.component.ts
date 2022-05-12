@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { categories } from '../../../../shared/mocks/3-directives/categories';
+import { categories, ICategory } from '../../../../shared/mocks/3-directives/categories';
 
 @Component({
 	selector: 'ngx-shop-root',
@@ -8,11 +8,11 @@ import { categories } from '../../../../shared/mocks/3-directives/categories';
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AppComponent {
-	public title = 'Компонент выбора категории товара';
+	public title: string = 'Компонент выбора категории товара';
 
-	public categories = categories;
+	public categories: ICategory[] = categories;
 
-	public terminalMessage = null;
+	public terminalMessage: string | null = null;
 
 	public selectSubCategory(subCategory: string) {
 		this.terminalMessage = `Переход на категорию товара: ${subCategory}`;

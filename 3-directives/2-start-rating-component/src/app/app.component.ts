@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { oneProduct } from '../../../../shared/mocks/3-directives/product';
+import { IProduct, oneProduct } from '../../../../shared/mocks/3-directives/product';
 
 @Component({
 	selector: 'ngx-shop-root',
@@ -9,5 +9,5 @@ import { oneProduct } from '../../../../shared/mocks/3-directives/product';
 export class AppComponent {
 	public title = 'Компонент рейтинга товара';
 
-	public product = oneProduct;
+	public product: IProduct = oneProduct;
 }

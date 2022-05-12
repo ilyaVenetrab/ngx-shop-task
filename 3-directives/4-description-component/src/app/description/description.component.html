@@ -1,12 +1,26 @@
 <div class="product-info-tabs">
   <nav>
     <div class="nav nav-tabs" id="nav-tab" role="tablist">
-      <a class="nav-item nav-link pointer description">Описание</a>
-      <a class="nav-item nav-link pointer feedbacks">Отзывы </a>
+      <a class="nav-item nav-link pointer description"
+         (click)="toggleTab()"
+         [ngClass]="{active: isShowDescription}"
+      >Описание</a>
+      <a class="nav-item nav-link pointer feedbacks"
+         (click)="toggleTab()"
+         [ngClass]="{active: !isShowDescription}"
+      >Отзывы {{ product.feedbacksCount }}</a>
     </div>
   </nav>
   <div class="tab-content">
-    <div class="product-description"></div>
-    <ngx-shop-feedbacks class="add-feedback-block"></ngx-shop-feedbacks>
+    <div class="product-description"
+         *ngIf="isShowDescription"
+    >{{ product.description }}</div>
+    <ngx-shop-feedbacks
+      class="add-feedback-block"
+      *ngIf="!isShowDescription"
+      [product]="product"
+      [feedbacks]="product.feedbacks"
+      (addFeedbackEvent)="addFeedback(product.name)"
+    ></ngx-shop-feedbacks>
   </div>
 </div>
