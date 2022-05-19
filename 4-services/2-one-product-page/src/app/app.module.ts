@@ -29,11 +29,9 @@ import { StarRatingComponent } from './one-product-page/star-rating/star-rating.
 		RatePipe,
 		ReviewPipe,
 	],
-
 	imports: [BrowserModule, HttpClientModule],
 	providers: [
 		ProductsService,
-
 		{
 			provide: BASE_URL_TOKEN,
 			useValue: environment.baseUrl,

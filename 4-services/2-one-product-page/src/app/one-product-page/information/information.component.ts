@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { IProduct } from '../../../../../../shared/mocks/4-services/product-information';
 
 @Component({
 	selector: 'ngx-shop-information',
@@ -8,7 +9,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 export class InformationComponent {
 	@Input()
 	// @ts-ignore
-	public product?: IProduct = null;
+	public product?: IProduct | null = null;
 
 	public isShow = false;
 

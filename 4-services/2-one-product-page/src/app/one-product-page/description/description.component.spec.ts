@@ -1,16 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { DescriptionComponent } from './description.component';
 import { FeedbacksComponent } from './feedbacks/feedbacks.component';
 import { oneProduct } from '../../../../../../shared/mocks/4-services/product-information';
 
-describe('[Moдуль 4 - Компонент описания товара]', () => {
+describe('[Модуль 4 - Компонент описания товара]', () => {
 	let fixture: ComponentFixture<DescriptionComponent>;
 	let component: DescriptionComponent;
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			declarations: [DescriptionComponent, FeedbacksComponent],
+		}).overrideComponent(DescriptionComponent, {
+			set: { changeDetection: ChangeDetectionStrategy.Default },
 		});
 		fixture = TestBed.createComponent(DescriptionComponent);
 		component = fixture.componentInstance;
@@ -33,7 +35,7 @@ describe('[Moдуль 4 - Компонент описания товара]', ()
 		expect((component as any).isShowDescription).toBeDefined();
 		expect((component as any).isShowDescription).toEqual(true);
 	});
-	it('компонент должен иметь cобственное событие addFeedbackEvent ', () => {
+	it('компонент должен иметь собственное событие addFeedbackEvent ', () => {
 		expect((component as any).addFeedbackEvent).toBeTruthy();
 		expect((component as any).addFeedbackEvent).toBeInstanceOf(EventEmitter);
 	});
