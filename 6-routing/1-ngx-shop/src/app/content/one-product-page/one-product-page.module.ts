@@ -14,5 +14,6 @@ import { SharedModule } from '../../shared/shared.module';
 		FeedbacksComponent,
 	],
 	imports: [ProductPageRoutingModule, SharedModule],
+	exports: [DescriptionComponent],
 })
 export class ProductPageModule {}

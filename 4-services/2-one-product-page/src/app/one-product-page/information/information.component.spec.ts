@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, EventEmitter } from '@angular/core';
 import { oneProduct } from '../../../../../../shared/mocks/4-services/product-information';
 import { InformationComponent } from './information.component';
 import { ReviewPipe } from '../pipes/review.pipe';
@@ -13,6 +13,8 @@ describe('[Moдуль 4 - Компонент информации о товар�
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			declarations: [InformationComponent, StarRatingComponent, ReviewPipe, RatePipe],
+		}).overrideComponent(InformationComponent, {
+			set: { changeDetection: ChangeDetectionStrategy.Default },
 		});
 		fixture = TestBed.createComponent(InformationComponent);
 		component = fixture.componentInstance;

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { IFeedback } from '../../../../../../../shared/mocks/4-services/products';
+import { IFeedback } from '../../../../../../../shared/mocks/4-services/product-information';
 
 @Component({
 	selector: 'ngx-shop-feedbacks',
@@ -9,7 +9,7 @@ import { IFeedback } from '../../../../../../../shared/mocks/4-services/products
 })
 export class FeedbacksComponent {
 	@Input()
-	public feedbacks: IFeedback[] = [];
+	public feedbacks: IFeedback[] | undefined = [];
 
 	@Output()
 	public addFeedbackEvent: EventEmitter<string> = new EventEmitter<string>();

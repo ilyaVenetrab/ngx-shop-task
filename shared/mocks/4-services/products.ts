@@ -12,7 +12,7 @@ export interface IProduct {
 	feedbacksCount: number;
 	images: IProductImage[];
 	rating?: number | null;
-	feedbacks?: IFeedback;
+	feedbacks?: IFeedback[];
 	subCategory?: string;
 }
 

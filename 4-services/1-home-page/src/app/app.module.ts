@@ -26,10 +26,10 @@ import { CategoriesService } from './services/categories/category.service';
 	providers: [
 		ProductsService,
 		CategoriesService,
-
 		{
 			provide: BASE_URL_TOKEN,
 			useValue: environment.baseUrl,
+			multi: true,
 		},
 		{
 			provide: HTTP_INTERCEPTORS,

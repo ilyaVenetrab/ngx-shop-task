@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
-import { DebugElement, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, DebugElement, EventEmitter } from '@angular/core';
 import {
 	IFeedback,
 	oneProduct,
@@ -14,6 +14,8 @@ describe('[Moдуль 4 - Компонент отзывов товара]', () =
 	beforeEach(() => {
 		TestBed.configureTestingModule({
 			declarations: [FeedbacksComponent, StarRatingComponent],
+		}).overrideComponent(FeedbacksComponent, {
+			set: { changeDetection: ChangeDetectionStrategy.Default },
 		});
 		fixture = TestBed.createComponent(FeedbacksComponent);
 		component = fixture.componentInstance;
@@ -68,6 +70,7 @@ describe('[Moдуль 4 - Компонент отзывов товара]', () =
 		const listElements: DebugElement[] = fixture.debugElement.queryAll(By.css('.advantages'));
 		expect(listElements).toBeTruthy();
 		(component as any).feedbacks.forEach((fb: IFeedback, index: number) => {
+			// @ts-ignore
 			expect(listElements[index].nativeElement.textContent.trim()).toEqual(fb.advantages);
 		});
 	});
